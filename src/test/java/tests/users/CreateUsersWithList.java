@@ -13,7 +13,7 @@ import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class СreateUsersWithList {
+public class CreateUsersWithList {
 
     @Epic("PetStore API")
     @Feature("User management")
