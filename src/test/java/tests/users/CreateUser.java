@@ -1,4 +1,4 @@
-package tests;
+package tests.users;
 
 import factories.UserFactory;
 import io.qameta.allure.Epic;
