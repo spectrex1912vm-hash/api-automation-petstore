@@ -1,7 +1,7 @@
 package factories;
 
 import com.github.javafaker.Faker;
-import models.User;
+import models.user.User;
 
 import java.util.List;
 import java.util.Map;
