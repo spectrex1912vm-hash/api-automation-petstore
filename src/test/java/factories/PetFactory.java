@@ -10,7 +10,7 @@ import java.util.List;
 public class PetFactory {
 
     public static Pet createRandomPet() {
-        Faker faker =new Faker();
+        Faker faker = new Faker();
 
         return Pet.builder()
                 .id(faker.number().randomNumber())
