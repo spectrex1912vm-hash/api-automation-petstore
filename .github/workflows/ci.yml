@@ -7,6 +7,11 @@ on:
       - master
   pull_request:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -28,9 +33,30 @@ jobs:
       - name: Run tests
         run: ./gradlew clean test
 
-      - name: Upload test reports
+      - name: Install Allure
         if: always()
-        uses: actions/upload-artifact@v4
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget unzip
+          wget https://github.com/allure-framework/allure2/releases/download/2.35.1/allure-2.35.1.tgz
+          tar -zxvf allure-2.35.1.tgz
+          sudo mv allure-2.35.1 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+
+      - name: Generate Allure Report
+        if: always()
+        run: allure generate build/allure-results -o allure-report --clean
+
+      - name: Setup Pages
+        if: always()
+        uses: actions/configure-pages@v5
+
+      - name: Upload Allure Report
+        if: always()
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: test-report
-          path: build/reports/tests/test/
+          path: allure-report
+
+      - name: Deploy Allure Report
+        if: always()
+        uses: actions/deploy-pages@v4
