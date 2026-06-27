@@ -32,4 +32,12 @@ public class PetFactory {
                 .status("avaliable")
                 .build();
     }
+
+    public static Pet updateRandomPet(Pet pet) {
+        Faker faker = new Faker();
+        return pet.toBuilder()
+                .name(faker.animal().name())
+                .status("sold")
+                .build();
+    }
 }

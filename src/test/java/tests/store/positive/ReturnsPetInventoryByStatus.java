@@ -1,4 +1,4 @@
-package tests.store;
+package tests.store.positive;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;

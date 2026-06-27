@@ -21,22 +21,37 @@ public class UserFactory {
                 .build();
     }
 
-    public static List<User> createRandomUsers(int count) {
+    public static User createRandomUser() {
 
         Faker faker = new Faker();
 
-        return IntStream.range(0, count)
-                .mapToObj(i -> User.builder()
+        return User.builder()
                         .id(faker.number().numberBetween(1000, 9999))
-                        .username("user_" + faker.name().username() + i)
+                        .username("user_" + faker.name().username())
                         .firstName(faker.name().firstName())
                         .lastName(faker.name().lastName())
                         .email(faker.internet().emailAddress())
                         .password("qatest")
                         .phone(faker.phoneNumber().subscriberNumber(9))
                         .userStatus(1)
-                        .build()
-                )
+                        .build();
+
+    }
+
+    public static User updateRandomUser(User user) {
+        Faker faker = new Faker();
+
+        return user.toBuilder()
+                .firstName(faker.name().firstName())
+                .lastName(faker.name().lastName())
+                .email(faker.internet().emailAddress())
+                .phone(faker.phoneNumber().subscriberNumber(9))
+                .build();
+    }
+
+    public static List<User> createRandomUsers(int count) {
+        return IntStream.range(0, count)
+                .mapToObj(i -> createRandomUser())
                 .toList();
     }
 
@@ -46,4 +61,5 @@ public class UserFactory {
                 "password", user.getPassword()
         );
     }
+
 }

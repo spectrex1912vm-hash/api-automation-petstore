@@ -1,4 +1,4 @@
-package tests.pets;
+package tests.pets.positive;
 
 import factories.PetFactory;
 import io.qameta.allure.Epic;

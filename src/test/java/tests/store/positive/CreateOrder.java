@@ -1,4 +1,4 @@
-package tests.store;
+package tests.store.positive;
 
 import factories.OrderFactory;
 import io.qameta.allure.Epic;

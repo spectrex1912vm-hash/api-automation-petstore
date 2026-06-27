@@ -1,4 +1,4 @@
-package tests.pets;
+package tests.pets.positive;
 
 import factories.PetFactory;
 import io.qameta.allure.Epic;
@@ -40,5 +40,7 @@ public class UpdatePet {
                 .statusCode(200)
                 .body("name", equalTo("updated name"))
                 .body("status", equalTo("sold"));
+
+
     }
 }

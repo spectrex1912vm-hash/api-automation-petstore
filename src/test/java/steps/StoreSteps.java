@@ -1,13 +1,14 @@
 package steps;
 
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import models.store.Order;
-import org.openqa.selenium.devtools.v122.fetch.model.AuthChallengeResponse;
 import specs.Specs;
-
 import static io.restassured.RestAssured.given;
 
 public class StoreSteps {
+
+    @Step("Get pet inventory")
     public static Response getPetInventory () {
         return given()
                 .spec(Specs.request)
@@ -15,6 +16,7 @@ public class StoreSteps {
                 .get("/store/inventory");
     }
 
+    @Step("Create order")
     public static Response placeOrder (Order order) {
         return  given()
                 .spec(Specs.request)
@@ -24,6 +26,7 @@ public class StoreSteps {
 
     }
 
+    @Step("Get order by id")
     public static Response getOrderById(Long id) {
         return given()
                 .spec(Specs.request)
@@ -31,7 +34,24 @@ public class StoreSteps {
                 .get("/store/order/" + id);
     }
 
+    @Step("Get order by id")
+    public static Response getOrderById(String id) {
+        return given()
+                .spec(Specs.request)
+                .when()
+                .get("/store/order/" + id);
+    }
+
+    @Step("Delete order")
     public static Response deleteOrder(Long id) {
+        return given()
+                .spec(Specs.request)
+                .when()
+                .delete("/store/order/" + id);
+    }
+
+    @Step("Delete order")
+    public static Response deleteOrder(String id) {
         return given()
                 .spec(Specs.request)
                 .when()
