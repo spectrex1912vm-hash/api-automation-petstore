@@ -1,66 +1,223 @@
+
 # PetStore API Automation Framework
 
-## Описание проекта
-Данный проект представляет собой фреймворк автоматизированного тестирования API для Swagger PetStore.
+![Build](https://github.com/Spectrex1912VM-hash/api-automation-petstore/actions/workflows/ci.yml/badge.svg)
 
-Проект создан для изучения и практики API тестирования, REST API валидации, а также построения масштабируемого тестового фреймворка на Java.
+Фреймворк автоматизированного тестирования **Swagger PetStore REST API**, построенный на Java с использованием современных практик QA Automation.
 
-Фреймворк находится в активной разработке — тесты и функциональность будут регулярно дополняться и расширяться по мере развития проекта.
+---
 
-## Технологии
-Java 17, REST Assured, JUnit 5, Lombok, Gradle, Allure Reports
+##  Возможности проекта
 
-## Архитектура фреймворка
-- Specs — переиспользуемые настройки запросов и ответов (REST Assured)
-- Модели (DTO) — Lombok классы для сериализации/десериализации JSON
-- Factory — генерация тестовых данных для переиспользования
-- Allure Steps — шаги тестов для удобного отчёта
-- Структура Given-When-Then — чистая и читаемая структура тестов
+* ✅ REST API тестирование
+* ✅ Positive / Negative / End-to-End сценарии
+* ✅ REST Assured Specifications
+* ✅ Factory Pattern
+* ✅ DTO модели (Lombok)
+* ✅ Java Faker для генерации тестовых данных
+* ✅ Allure Report
+* ✅ GitHub Actions (CI)
+* ✅ Автоматическая публикация Allure Report через GitHub Pages
 
-## Покрытие API (в процессе)
-Пользователь (User API):
-- Создание пользователя
-- Получение пользователя по username
-- Обновление пользователя
-- Удаление пользователя
+---
 
-Покрытие будет постепенно расширяться новыми сценариями и дополнительными API модулями.
+# 📊 Онлайн-отчет
 
-## Запуск тестов
-Запуск всех тестов:
-./gradlew test
+### 🔗 Актуальный Allure Report
 
-## Allure отчет
-Генерация отчета:
-./gradlew allureReport
+https://spectrex1912vm-hash.github.io/api-automation-petstore/
 
-Запуск и открытие отчета:
-./gradlew allureServe
+---
 
-Результаты Allure генерируются автоматически во время выполнения тестов и используются для построения HTML отчета.
+## Обзор выполнения тестов
 
-## Основные особенности проекта
-- Архитектура на основе спецификаций REST Assured
-- Использование Factory для тестовых данных
-- DTO модели на Lombok
-- Чистая структура тестов Given-When-Then
-- Интеграция с Allure Report
-- Масштабируемая и расширяемая архитектура
+![Allure Overview](screenshots/allure-overview.png)
 
-## План развития проекта
-- Негативные сценарии тестирования
-- Расширение покрытия API (Pet, Store)
-- Валидация JSON схем
-- Data-driven тестирование
-- Улучшение генерации тестовых данных (Faker)
-- Оптимизация структуры фреймворка
+---
 
-## Цель проекта
-Проект создан для практики:
-- автоматизации API тестирования
-- валидации REST API
-- построения тестового фреймворка на Java
-- применения реальных QA automation подходов
+## Статистика выполнения
 
-## Автор
-QA Automation Engineer (обучение и практика)
+![Allure Graphs](screenshots/allure-graphs.png)
+
+---
+
+## Пример End-to-End сценария
+
+Пример полного жизненного цикла заказа с автоматически сформированными шагами выполнения.
+
+![Allure E2E](screenshots/allure-e2e.png)
+
+---
+
+#  Описание проекта
+
+Данный проект демонстрирует построение масштабируемого фреймворка автоматизации API-тестирования с использованием современных инструментов Java Automation.
+
+Основной целью проекта является разработка чистой архитектуры тестового фреймворка, позволяющей легко расширять покрытие API, переиспользовать компоненты и поддерживать проект по мере роста количества тестов.
+
+Фреймворк реализован с разделением ответственности между слоями и использованием переиспользуемых компонентов.
+
+---
+
+#  Используемые технологии
+
+* Java 17
+* REST Assured
+* JUnit 5
+* Gradle
+* Lombok
+* Java Faker
+* Allure Report
+* GitHub Actions
+* GitHub Pages
+
+---
+
+#  Архитектура проекта
+
+Проект построен по принципу разделения ответственности.
+
+```text
+src/test/java
+│
+├── factories
+├── models
+├── specs
+├── steps
+└── tests
+    ├── positive
+    ├── negative
+    └── e2e
+```
+
+### Основные компоненты
+
+### Specs
+
+Переиспользуемые Request/Response Specification для REST Assured.
+
+### Models (DTO)
+
+Java-модели для сериализации и десериализации JSON.
+
+### Factories
+
+Генерация тестовых данных с использованием Java Faker.
+
+### Steps
+
+Переиспользуемые действия над API.
+
+### Tests
+
+Тесты разделены по типам сценариев:
+
+* Positive
+* Negative
+* End-to-End
+
+---
+
+#  Покрытие API
+
+## User API
+
+* Create User
+* Get User
+* Update User
+* Delete User
+* Login
+* Logout
+* Create Users (Array/List)
+* Negative Scenarios
+* End-to-End Lifecycle
+
+---
+
+## Pet API
+
+* Create Pet
+* Get Pet
+* Update Pet
+* Delete Pet
+* Find Pet By Status
+* Negative Scenarios
+* End-to-End Lifecycle
+
+---
+
+## Store API
+
+* Place Order
+* Get Order
+* Delete Order
+* Inventory
+* Negative Scenarios
+* End-to-End Lifecycle
+
+---
+
+# ▶ Запуск проекта
+
+Запуск всех тестов
+
+```bash
+./gradlew clean test
+```
+
+Запуск отдельного теста
+
+```bash
+./gradlew test --tests "package.ClassName"
+```
+
+---
+
+#  Отчеты
+
+После каждого Push или Pull Request GitHub Actions автоматически:
+
+* собирает проект;
+* запускает тесты;
+* формирует Allure Report;
+* публикует отчет через GitHub Pages.
+
+Последняя опубликованная версия отчета всегда доступна по ссылке:
+
+https://spectrex1912vm-hash.github.io/api-automation-petstore/
+
+---
+
+#  CI/CD
+
+Pipeline GitHub Actions включает:
+
+* Checkout репозитория
+* Установку JDK
+* Сборку проекта
+* Запуск полного набора тестов
+* Генерацию Allure Report
+* Автоматическую публикацию отчета на GitHub Pages
+
+---
+
+#  Ключевые особенности
+
+* Масштабируемая архитектура
+* REST Assured Specifications
+* Factory Pattern
+* DTO модели
+* Java Faker
+* Позитивные сценарии
+* Негативные сценарии
+* End-to-End тестирование
+* Allure Reporting
+* GitHub Actions CI
+* GitHub Pages Deployment
+* Чистая структура проекта
+
+
+
+
+
+
