@@ -45,7 +45,7 @@ jobs:
 
       - name: Generate Allure Report
         if: always()
-        run: allure generate build/allure-results -o allure-report --clean
+        run: allure generate allure-results -o allure-report --clean
 
       - name: Setup Pages
         if: always()
